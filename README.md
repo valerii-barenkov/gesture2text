@@ -98,6 +98,8 @@ gesture2text/
 └── run.bat
 ```
 
+---
+
 ## Installation
 
 ### Requirements
