@@ -18,8 +18,10 @@ venv/
 # Data (raw & generated)
 data/raw/
 data/processed/
+src/data/raw/
+src/data/models/*.joblib
 data/models/*.joblib
-data/models/_*.joblib
+*.joblib
 
 # Archives
 archive/
