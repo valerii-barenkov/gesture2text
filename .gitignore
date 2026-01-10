@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Data (raw & generated)
+data/raw/
+data/processed/
+data/models/*.joblib
+data/models/_*.joblib
+
+# Archives
+archive/
+
+# Logs
+*.log
