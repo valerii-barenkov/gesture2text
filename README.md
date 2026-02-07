@@ -1,5 +1,11 @@
 # Gesture2Text
 
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+**Gesture2Text** is a research-oriented prototype exploring accessible, camera-based communication through classical machine learning.
+
 **Gesture2Text** is an experimental hand gesture recognition system based on machine learning, focused on inclusive human–computer interaction and assistive technologies. The project explores how feature-based machine learning models can enable basic communication through predefined hand gestures captured via a standard webcam, without the need for speech, touch input, or specialized hardware.
 
 The system is designed for people with speech or motor impairments, as well as for environments where voice control is unreliable (noise, privacy constraints). All processing is performed locally and offline.
@@ -7,7 +13,7 @@ The system is designed for people with speech or motor impairments, as well as f
 ---
 
 ## Demo
-> Demo video/GIF will be added soon.
+> A short demo (real-time webcam recognition) will be added in a future update.
 
 ---
 
@@ -70,10 +76,9 @@ A scikit-learn pipeline is used:
 
 ### 4. Post-processing
 
-* Temporal smoothing and confidence thresholds
-* Optional text-to-speech output  
-
-This approach provides a strong and interpretable baseline while remaining computationally efficient and suitable for real-time execution on consumer hardware.
+* Temporal smoothing
+* Confidence thresholds
+* UNKNOWN class filtering to reduce false positives
 
 ---
 
@@ -107,26 +112,22 @@ gesture2text/
 
 ## Installation
 
-### Requirements
+### Clone the repository
 
-- Python 3.10 or newer
-- Webcam
-- macOS, Linux, or Windows
+`git clone https://github.com/valerii-barenkov/gesture2text.git`
+`cd gesture2text`
 
-### Setup
-
-1. Clone the repository:
-
-`git clone https://github.com/your-username/gesture2text.git
-cd gesture2text`
-
-2. Create and activate a virtual environment:
+### Create and activate virtual environment
 
 `python -m venv .venv`
-`source .venv/bin/activate    # macOS / Linux`
-`.venv\Scripts\activate       # Windows`
 
-3. Install dependencies:
+**macOS / Linux:**
+`source .venv/bin/activate`
+
+**Windows (PowerShell):**
+`.venv\Scripts\activate`
+
+### Install dependencies
 
 `pip install -r requirements.txt`
 
@@ -134,20 +135,15 @@ cd gesture2text`
 
 ## Running the Application
 
-### macOS / Linux
-
+**macOS / Linux:**
 `./run.sh`
-
-or
-
+**or**
 `./run.command`
 
-### Windows
-
+**Windows:**
 `run.bat`
 
-Alternatively, you can run directly:
-
+**Alternatively, you can run directly:**
 `PYTHONPATH=src python src/app/run_camera.py`
 
 The application starts the webcam feed and displays recognized gestures in real time.
@@ -156,12 +152,10 @@ The application starts the webcam feed and displays recognized gestures in real 
 
 ## Data Collection
 
-To collect new gesture samples:
-
+**To collect new gesture samples:**
 `PYTHONPATH=src python src/data/collector.py`
 
 This tool allows:
-
 * Switching users
 * Assigning gesture labels via keyboard
 * Saving collected samples to CSV files
@@ -172,12 +166,10 @@ Collected data is stored locally and is not tracked by Git.
 
 ## Model Training
 
-To train a new model from collected data:
-
+**To train a new model from collected data:**
 `PYTHONPATH=src python src/ml/train.py --dataset combined`
 
 The training script:
-
 * Loads and validates the dataset
 * Extracts features
 * Trains a classifier
@@ -187,38 +179,23 @@ The training script:
 
 ## Offline Evaluation
 
-To evaluate a trained model on stored samples:
-
+**To evaluate a trained model on stored samples:**
 `PYTHONPATH=src python src/ml/predict_one.py --n 500`
 
-To inspect a single sample:
-
+**To inspect a single sample:**
 `PYTHONPATH=src python src/ml/predict_one.py --row 0`
 
 ---
 
-## Intended Use
+## Results
 
-This project is intended as:
-
-* An academic prototype
-* Lightweight baseline for assistive HCI
-* A research exploration of inclusive HCI and applied machine learning for assistive systems
-
-It is not a medical device and is not intended for clinical use.
+* Trained on: custom multi-user gesture dataset
+* Model: classical ML baseline with UNKNOWN class
+* Status: working research prototype
+* Evaluation: metrics will be added in future experiments
 
 ---
 
-## Future Work
+## License
 
-Potential directions for further development include:
-
-* Expanding the gesture vocabulary
-* Improving cross-user generalization
-* Temporal sequence models
-* Integration with external applications or OS-level controls
-
-## Results
-* Trained on: custom gesture dataset (multiple users)
-* Model: classical ML baseline with UNKNOWN class
-* Status: working prototype
+This project is licensed under the MIT License.
