@@ -6,6 +6,11 @@ The system is designed for people with speech or motor impairments, as well as f
 
 ---
 
+## Demo
+> Demo video/GIF will be added soon.
+
+---
+
 ## Key Features
 
 * Classical machine learning–based gesture classification
@@ -197,7 +202,7 @@ To inspect a single sample:
 This project is intended as:
 
 * An academic prototype
-* A bachelor-level or early master-level project
+* Lightweight baseline for assistive HCI
 * A research exploration of inclusive HCI and applied machine learning for assistive systems
 
 It is not a medical device and is not intended for clinical use.
@@ -212,3 +217,8 @@ Potential directions for further development include:
 * Improving cross-user generalization
 * Temporal sequence models
 * Integration with external applications or OS-level controls
+
+## Results
+* Trained on: custom gesture dataset (multiple users)
+* Model: classical ML baseline with UNKNOWN class
+* Status: working prototype
